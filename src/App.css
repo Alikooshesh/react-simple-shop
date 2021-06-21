@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+main{
+    display: flex;
+    flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.top-main{
+    width: 100%;
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.filters{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 65%;
+    border-bottom: 2px solid black;
+    margin-right: 5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.basket-header{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+.main{
+    width: 100%;
+    display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.shop{
+    width: 65vw;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.basket{
+    width: 30%;
+}
+
+
+
+.products{
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 5%;
+}
+
+.productCard{
+    width: 28%;
+    margin: 2%;
+    margin-bottom: 5rem;
+}
+
+.basket{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 5rem;
 }
