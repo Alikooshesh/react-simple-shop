@@ -3,6 +3,7 @@ import {useState} from 'react'
 import Header from './components/header/header'
 import Selector from './components/selector/selector'
 import ProductCard from './components/productCard/productCard'
+import BasketCard from "./components/basketCard/basketCard";
 import {productList} from './data/productData'
 import {basketData} from "./data/basketData";
 import {logDOM} from "@testing-library/react";
@@ -75,7 +76,11 @@ function App() {
                     })}
                 </div>
                 <div className={"basket"}>
-
+                    {basketDataState.map(item => {
+                        return(
+                            <BasketCard id={item.id} img={item.img} price={item.price} name={item.title} amount={item.amount} deleteaction={delFromBasket}></BasketCard>
+                        )
+                    })}
                 </div>
             </div>
         </main>

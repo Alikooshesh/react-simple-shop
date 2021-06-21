@@ -38,6 +38,9 @@ main{
 
 .basket{
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 
@@ -57,10 +60,3 @@ main{
     margin-bottom: 5rem;
 }
 
-.basket{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 5rem;
-}
