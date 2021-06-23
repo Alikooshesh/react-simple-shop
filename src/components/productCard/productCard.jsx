@@ -2,7 +2,7 @@ import './productCard.css'
 
 function productCard ({id ,title , imgSrc , price , buyAction}) {
     return (
-        <div className={"productCard"}>
+        <div id={id} className={"productCard"}>
             <div className={"img-div"}>
                 <img src={imgSrc} alt={title + "Image"}/>
             </div>

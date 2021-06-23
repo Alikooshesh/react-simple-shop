@@ -7,6 +7,7 @@ import ProductCard from './components/productCard/productCard'
 import BasketCard from "./components/basketCard/basketCard";
 import BillingForm from "./components/billingForm/billingForm"
 import {productList} from './data/productData'
+import {logDOM} from "@testing-library/react";
 
 
 function App() {
@@ -17,6 +18,29 @@ function App() {
     const [filters , setFilters] = useState({})
 
     const [billingFormShow , setBillingFormShow] = useState(false)
+
+    useEffect(async ()=>{
+        await setFilteredProductData([...productList])
+
+        if (filters["size_selector"] && filters["size_selector"] != "All"){
+            setFilteredProductData([...productList.filter(item =>
+                item.size == filters["size_selector"]
+            )])
+        }
+
+        if (filters["price_selector"] && filters["price_selector"] != "All"){
+            if (filters["price_selector"] != "Highest"){
+                setFilteredProductData([...filteredProductData.sort((item,item2) => item.price - item2.price)])
+
+            }
+            else {
+                setFilteredProductData([...filteredProductData.sort((item,item2) => item2.price - item.price)])
+            }
+        }
+
+        console.log(filteredProductData)
+    },[filters])
+
 
     useEffect(()=> {setTotalPrice(totalPriceCalc())}, [basketDataState])
 
@@ -70,6 +94,7 @@ function App() {
   return (
 
       <div>
+          {console.log(filters)}
         <Header title={"React Shoping Cart"}></Header>
         <main>
             <div className={"top-main"}>
@@ -96,7 +121,7 @@ function App() {
                     {
                         basketDataState.map(item => {
                         return(
-                            <BasketCard id={item.id} img={item.img} price={item.price} name={item.title} amount={item.amount} deleteaction={delFromBasket}></BasketCard>
+                            <BasketCard key={'basket' + item.id} id={item.id} img={item.img} price={item.price} name={item.title} amount={item.amount} deleteaction={delFromBasket}></BasketCard>
                         )
                     })}
                     <div className={"d-flex"}>
@@ -104,7 +129,7 @@ function App() {
                         <button onClick={openProceed}>Proceed</button>
                     </div>
 
-                    <BillingForm billingFormShow={billingFormShow} setBillingFormShow={setBillingFormShow} setBasketData={setBasketData}></BillingForm>
+                    <BillingForm key={'billingForm'} billingFormShow={billingFormShow} setBillingFormShow={setBillingFormShow} setBasketData={setBasketData}></BillingForm>
 
                 </div>
             </div>

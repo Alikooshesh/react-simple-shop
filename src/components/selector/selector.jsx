@@ -1,7 +1,11 @@
 function selector ({id , name , label , options , filters , setFilters})  {
     function changeHandel(e) {
-        setFilters({...filters , [e.target.name] : e.target.value})
-        console.log(filters)
+        if (e.target.name === "size_selector"){
+            setFilters({[e.target.name] : e.target.value})
+        }else {
+            setFilters({...filters , [e.target.name] : e.target.value})
+        }
+
     }
 
     return (
