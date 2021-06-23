@@ -8,7 +8,7 @@ function BasketCard({id , name , img , amount , price , deleteaction}) {
             </div>
             <div className={"basket-card-info"}>
                 <h2>{name}</h2>
-                <h4>{price} $</h4>
+                <h4>{price * amount} $</h4>
             </div>
             <div className={"basket-card-action"}>
                 <p>amount = {amount}</p>

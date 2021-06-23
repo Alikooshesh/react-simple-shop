@@ -1,11 +1,15 @@
-function selector ({id , label , options , startValue})  {
-    console.log(options)
+function selector ({id , name , label , options , filters , setFilters})  {
+    function changeHandel(e) {
+        setFilters({...filters , [e.target.name] : e.target.value})
+        console.log(filters)
+    }
+
     return (
         <div>
             <label htmlFor={id}>{label}</label>
-            <select id={id} value={startValue}>
+            <select name={name} id={id} value={filters[name]} onChange={changeHandel}>
                 {options.map(item => {
-                    return (<option value={item}>{item}</option>)
+                    return (<option key={item} value={item}>{item}</option>)
                 })}
             </select>
         </div>
